@@ -1,4 +1,4 @@
-var config = {
+let config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
@@ -19,8 +19,8 @@ function preload ()
 
 function create ()
 {
-    this.add.image (400, 300, 'main');
-    this.add.image (0, 0, 'background')
+    this.add.sprite(400, 300, 'main');
+    this.add.sprite(0, 0, 'background');
 }
 
 function update ()
