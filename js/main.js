@@ -21,6 +21,7 @@ function create ()
 {
     this.add.sprite(400, 300, 'main');
     this.add.sprite(0, 0, 'background');
+    game.stage.backgroundColor("")
 }
 
 function update ()
