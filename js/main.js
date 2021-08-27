@@ -1,8 +1,6 @@
-src = "js/phaser.min.js"
-
-let config = {
+var config = {
     type: Phaser.AUTO,
-    width: 1000,
+    width: 800,
     height: 600,
     scene: {
         preload: preload,
@@ -13,14 +11,18 @@ let config = {
 
 var game = new Phaser.Game(config);
 
-function preload (){
-
+function preload ()
+{
+    this.load.image("main", "assets/main_c.png")
+    this.load.image("background", "assets/background.png")
 }
 
-function create (){
-
+function create ()
+{
+    this.add.image (400, 300, 'main');
+    this.add.image (0, 0, 'background')
 }
 
-function update (){
-
+function update ()
+{
 }
