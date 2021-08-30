@@ -23,4 +23,5 @@ function a() {
     setInterval(draw, 10); //10 millisecond 
 }
 
+drawBall()
 addEventListener("click", a);
