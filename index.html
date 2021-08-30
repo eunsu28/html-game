@@ -13,24 +13,30 @@
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
 <script>
-	const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var x = canvas.width/2;
+    var y = canvas.height-30;
+    var dx = 2;
+    var dy = -2;
 
-    ctx.beginPath(); 
-    ctx.rect(50, 50, 50, 50); //사각형 //처음 두개는 위치, 뒤에는 크기 
-    ctx.fillStyle = "#FF0000"; // 채워 넣기 (빨강)
-    ctx.fill();
-    ctx.closePath();
+    function drawBall() { //공을 계속 그리기 위해서 함수로 선언
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
 
-    ctx.beginPath();
-    ctx.arc(240, 160, 50, 0, Math.PI*2, false); //원
-    ctx.fillStyle = "blue"; // 채워 넣기 초록
-    ctx.fill();
-    ctx.closePath();
+    function draw() { //공을 화면에 그리다
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+        x += dx;
+        y += dy;
+    }
 
-    ctx.beginPath();
-    ctx.rect(160, 10, 100, 40);
-    </script>
+    setInterval(draw, 10);
+</script>
 
 </body>
 </html>
