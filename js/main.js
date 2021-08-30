@@ -16,8 +16,8 @@ function drawBall() { //공을 계속 그리기 위해서 함수로 선언
 function draw() { //공을 화면에 그리다
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
-    x += dx;
-    y += dy;
+    x += 1;
+    y += -1;
 }
 
 setInterval(draw, 10);
