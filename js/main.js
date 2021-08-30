@@ -2,6 +2,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
 var y = canvas.height-30;
+const button = document.querySelector("#button");
 
 function drawBall() { //공을 계속 그리기 위해서 함수로 선언
     ctx.beginPath();
@@ -18,4 +19,8 @@ function draw() { //공을 화면에 그리다
     y += -1; //올라가자
 }
 
-setInterval(draw, 10); //10 millisecond 
+function a() {
+    setInterval(draw, 10); //10 millisecond 
+}
+
+addEventListener("click", a);
