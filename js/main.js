@@ -14,8 +14,8 @@ function drawBall() { //공을 계속 그리기 위해서 함수로 선언
 function draw() { //공을 화면에 그리다
     ctx.clearRect(0, 0, canvas.width, canvas.height); //흔적 지우기
     drawBall(); //공그리기 function실행
-    // x += 1; //x에 위치더해주기 0이면 그대로 있고
-    // y += -1; //올라가자
+    x += 1; //x에 위치더해주기 0이면 그대로 있고
+    y += -1; //올라가자
 }
 
-setInterval(draw, 10);
+setInterval(draw, 10); //10 millisecond 
