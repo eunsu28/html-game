@@ -3,22 +3,35 @@ var ctx = canvas.getContext("2d");
 var x = canvas.width/2;
 var y = canvas.height-30;
 const button = document.querySelector("#button");
+const ballRadius = 10;
+let dy = -10;
+let dx = 10;
 let num = 0;
+
 
 function drawBall() { //공을 계속 그리기 위해서 함수로 선언
     ctx.beginPath();
-    ctx.arc(x, y, 50, 0, Math.PI*2); //공위치
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = "#0095DD";
     ctx.fill();
     ctx.closePath();
 }
 
-function draw() { //공을 화면에 그리다
-    ctx.clearRect(0, 0, canvas.width, canvas.height); //흔적 지우기
-    drawBall(); //공그리기 function실행
-    x += 1; //x에 위치더해주기 0이면 그대로 있고
-    y += -1; //올라가자
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    
+    if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+        dy = -dy;
+    }
+    
+    x += dx;
+    y += dy;
 }
+
 
 function a() {
     num += 1;
@@ -31,3 +44,36 @@ function a() {
 
 drawBall();
 button.addEventListener("click", a);
+
+// var canvas = document.getElementById("myCanvas");
+// var ctx = canvas.getContext("2d");
+// var ballRadius = 10;
+// var x = canvas.width/2;
+// var y = canvas.height-30;
+// var dx = 2;
+// var dy = -2;
+
+// function drawBall() {
+//     ctx.beginPath();
+//     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+//     ctx.fillStyle = "#0095DD";
+//     ctx.fill();
+//     ctx.closePath();
+// }
+
+// function draw() {
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+//     drawBall();
+    
+//     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+//         dx = -dx;
+//     }
+//     if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+//         dy = -dy;
+//     }
+    
+//     x += dx;
+//     y += dy;
+// }
+
+// setInterval(draw, 10);
