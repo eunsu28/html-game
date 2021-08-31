@@ -24,4 +24,4 @@ function a() {
 }
 
 drawBall()
-addEventListener("click", a);
+button.addEventListener("click", a);
