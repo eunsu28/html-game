@@ -93,7 +93,7 @@ function a() {
     if(num === 1){
         setInterval(draw, 10); //10 millisecond 
     } else if(num === 2){
-        window.location.reload()
+        window.location.reload() //재시작
     }
 }
 
