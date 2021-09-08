@@ -72,41 +72,29 @@ function draw() { //지우고 그리고 지우고 그리고
     drawBall();
     drawPaddle();
     
-    if(x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
-    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
-        dy = -dy;
-    }
-
     if(y + dy < ballRadius) {
         dy = -dy;
-    } else if(y + dy > canvas.height-ballRadius) {
-        alert("GAME OVER");
-        document.location.reload();
-        clearInterval(interval); // Needed for Chrome to end game
-        
     }
+    else if(y + dy > canvas.height-ballRadius) {
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            document.location.reload();
+            alert("gameover")
+        }
+    }
+    
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
     }
     else if(leftPressed && paddleX > 0) {
         paddleX -= 7;
     }
-
-    if(y + dy < ballRadius) {
-        dy = -dy;
-    } else if(y + dy > canvas.height-ballRadius) {
-        if(x > paddleX && x < paddleX + paddleWidth) {
-            dy = -dy;
-        }
-        else {
-            alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval);
-        }
-    }
-
+    
     x += dx;
     y += dy;
 }
@@ -115,7 +103,7 @@ function draw() { //지우고 그리고 지우고 그리고
 function a() {
     num += 1;
     if(num === 1){
-        var interval = setInterval(draw, 10);
+        setInterval(draw, 10);
     } else if(num === 2){
         window.location.reload() //재시작
     }
