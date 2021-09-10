@@ -67,6 +67,7 @@ function drawPaddle() {
     ctx.closePath();
 }
 
+//그리고 지우고 반복하며 공 & 발판(?) 움직이기
 function draw() { //지우고 그리고 지우고 그리고
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
@@ -95,21 +96,25 @@ function draw() { //지우고 그리고 지우고 그리고
         paddleX -= 7;
     }
     
+    //dx으 만큼을 움직이기
     x += dx;
     y += dy;
 }
+//
 
 //버튼 누르면 시작 및 새로 시작
 function a() {
     num += 1;
     if(num === 1){
-        setInterval(draw, 10);
+        setInterval(draw, 10); // 10millisecond 마다 하기
     } else if(num === 2){
-        window.location.reload() //재시작
+        window.location.reload() //refresh the page
     }
 }
+//
+//
 
-//처음에 시작하기 전에
+//처음에 시작하기 전에 그려주기
 drawBall();
 drawPaddle();
 //
