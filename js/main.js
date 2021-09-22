@@ -27,6 +27,11 @@ var rightPressed = false;
 var leftPressed = false;
 //
 
+// 포인트
+const htmlPoint = document.querySelector("#point")
+var point = 0;
+//
+
 //add event listenr
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -82,6 +87,7 @@ function draw() { //지우고 그리고 지우고 그리고
     else if(y + dy > canvas.height-ballRadius) {
         if(x > paddleX && x < paddleX + paddleWidth) {
             dy = -dy;
+            point += 1;
         }
         else {
             document.location.reload();
